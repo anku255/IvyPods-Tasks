@@ -22,17 +22,21 @@ const ItemList = ({ users }) =>
 
 const ReverseScroll = ({ users: initialUsers }) => {
   const [users, setUsers] = useState(initialUsers);
-  const [hasMore, setHasMore] = useState(true);
+  // initially hasMore is set to false to prevent loading more users
+  // on initial render
+  const [hasMore, setHasMore] = useState(false);
   const itemListParentRef = useRef(null);
 
   useEffect(() => {
+    // set hasMore to true after intial render so that on
+    // scrolling up load more users is fired up
+    setHasMore(true);
     // Reverse Scroll: scroll to the bottom of the list
     itemListParentRef.current.scrollTop =
       itemListParentRef.current.scrollHeight;
   }, []);
 
   const loadMoreUsers = () => {
-    // TODO: Stop fetching users on initial page load
     if (users.length >= 80) {
       return setHasMore(false);
     }
