@@ -31,7 +31,7 @@ const PageOne = () => (
         type="text"
         placeholder="Name"
         validate={required}
-        className="input border bg-white px-3 py-2 w-full"
+        className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none leading-normal"
       />
       <ErrorMessage name="name" component="div" className="text-red-500" />
     </div>
@@ -43,7 +43,7 @@ const PageOne = () => (
         type="email"
         placeholder="Email"
         validate={required}
-        className="input border bg-white px-3 py-2 w-full"
+        className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none leading-normal"
       />
       <ErrorMessage name="email" component="div" className="text-red-500" />
     </div>
@@ -59,7 +59,7 @@ const PageTwo = () => (
         component="input"
         type="password"
         placeholder="Password"
-        className="input border bg-white px-3 py-2 w-full"
+        className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none leading-normall"
       />
       <ErrorMessage name="password" component="div" className="text-red-500" />
     </div>
@@ -70,7 +70,7 @@ const PageTwo = () => (
         component="input"
         type="confirmPassword"
         placeholder="Confirm Password"
-        className="input border bg-white px-3 py-2 w-full"
+        className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none leading-normall"
       />
       <ErrorMessage
         name="confirmPassword"
@@ -84,8 +84,8 @@ const PageTwo = () => (
 const MultiStepForm = () => {
   return (
     <Layout>
-      <div className="container mx-auto">
-        <h1 className="text-2xl text-bold mb-4">Multi Step Form</h1>
+      <div className="container mx-auto max-w-2xl bg-white px-8 py-4 shadow">
+        <h1 className="text-2xl mb-4">Multi Step Form</h1>
 
         <Wizard
           initialValues={{
