@@ -48,7 +48,8 @@ const Wizard = props => {
       enableReinitialize={false}
       validate={validate}
       onSubmit={handleSubmit}
-      render={({ handleSubmit, isSubmitting }) => (
+    >
+      {({ handleSubmit, isSubmitting }) => (
         <form onSubmit={handleSubmit}>
           {activePage}
           <div className="flex justify-between items-center">
@@ -82,7 +83,7 @@ const Wizard = props => {
           </div>
         </form>
       )}
-    />
+    </Formik>
   );
 };
 
