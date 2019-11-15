@@ -7,7 +7,7 @@ const Page = ({ children }) => children;
 const Wizard = props => {
   // state
   const [values, setValues] = useState(props.initialValues);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
 
   // handlers
   const goToPrevPage = values => {

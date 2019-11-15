@@ -6,6 +6,21 @@ import Wizard from "../components/wizard";
 
 const required = value => (value ? undefined : "Required!");
 
+const validatePageTwo = values => {
+  const errors = {};
+  const { password, confirmPassword } = values;
+  if (!password) {
+    errors.password = "Required";
+  }
+  if (!confirmPassword) {
+    errors.confirmPassword = "Required";
+  }
+  if (confirmPassword !== password) {
+    errors.confirmPassword = "Passwords don't match!";
+  }
+  return errors;
+};
+
 const PageOne = () => (
   <Wizard.Page>
     <div className="mb-4">
@@ -36,19 +51,7 @@ const PageOne = () => (
 );
 
 const PageTwo = () => (
-  <Wizard.Page
-    validate={values => {
-      const errors = {};
-      if (!values.password) {
-        errors.password = "Required";
-      }
-      // TODO: Update validations
-      if (!values.confirmPassword) {
-        errors.confirmPassword = "Required";
-      }
-      return errors;
-    }}
-  >
+  <Wizard.Page>
     <div className="mb-4">
       <label className="block mb-1 text-semibold">Password</label>
       <Field
@@ -72,7 +75,7 @@ const PageTwo = () => (
       <ErrorMessage
         name="confirmPassword"
         component="div"
-        className="field-error"
+        className="text-red-500"
       />
     </div>
   </Wizard.Page>
@@ -96,7 +99,7 @@ const MultiStepForm = () => {
           }}
         >
           <PageOne />
-          <PageTwo />
+          <PageTwo validate={validatePageTwo} />
         </Wizard>
       </div>
     </Layout>
