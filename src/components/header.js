@@ -5,18 +5,13 @@ function Header() {
   const [isExpanded, toggleExpansion] = useState(false);
 
   return (
-    <header className="bg-teal-500">
-      <div className="flex flex-wrap md:flex-no-wrap items-center justify-between max-w-4xl mx-auto p-4 md:p-8">
+    <header className="bg-white border-b">
+      <div className="flex flex-wrap md:flex-no-wrap items-center justify-between max-w-4xl mx-auto p-4">
         <div className="flex items-center">
-          <img
-            src="tailwind-logo.svg"
-            className="mr-3 text-white w-10"
-          />
+          <img src="tailwind-logo.svg" className="mr-3 text-black w-10" />
 
           <Link href="/">
-            <a className="font-bold text-white text-xl">
-              Next.js Starter Tailwind
-            </a>
+            <a className="font-bold text-black text-xl">IvyPods Tasks</a>
           </Link>
         </div>
 
@@ -25,7 +20,7 @@ function Header() {
           onClick={() => toggleExpansion(!isExpanded)}
         >
           <svg
-            className="fill-current h-3 w-3"
+            className="text-black fill-current h-3 w-3"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -40,12 +35,15 @@ function Header() {
           } md:flex flex-col md:flex-row md:items-center md:justify-center text-sm w-full md:w-auto`}
         >
           {[
-            { title: "Home", route: "/" },
-            { title: "About", route: "/about" }
+            { title: "Infinite Scroll", route: "/reverse-scroll" },
+            { title: "Lazy Load", route: "/lazy-load" },
+            { title: "Multistep Form", route: "/multistep-form" }
           ].map(navigationItem => (
             <li className="mt-3 md:mt-0 md:ml-6" key={navigationItem.title}>
               <Link href={navigationItem.route}>
-                <a className="block text-white">{navigationItem.title}</a>
+                <a className="block text-gray-600 hover:bg-gray-600 hover:text-white px-2 py-1 rounded">
+                  {navigationItem.title}
+                </a>
               </Link>
             </li>
           ))}

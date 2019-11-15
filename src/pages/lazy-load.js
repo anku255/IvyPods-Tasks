@@ -66,10 +66,12 @@ const LazyLoad = () => {
   return (
     <Layout>
       <div className="container mx-auto">
-        <h1 className="text-xl text-gray-dark text-semibold mb-4">
+        <h1 className="text-center text-xl text-gray-dark font-semibold mb-4">
           Lazy Loading Images
         </h1>
-        <ImageList images={images} />
+        <div className="flex flex-wrap justify-center">
+          <ImageList images={images} />
+        </div>
       </div>
     </Layout>
   );

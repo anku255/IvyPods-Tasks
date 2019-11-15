@@ -41,12 +41,13 @@ const ReverseScroll = ({ users: initialUsers }) => {
 
   return (
     <Layout>
-      <div className="container flex flex-col">
+      <div className="container mx-auto flex flex-col max-w-md items-center border">
         <div className="py-4 max-w-md  text-semibold text-xl">
           Users List with Reverse Inifinte Scroll
         </div>
         <div
-          className="container max-w-md h-64 mt-4 overflow-y-auto"
+          className="container max-w-md mt-4 overflow-y-auto"
+          style={{ height: "22rem" }}
           ref={itemListParentRef}
         >
           <InfiniteScroll
