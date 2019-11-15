@@ -46,13 +46,13 @@ const Wizard = props => {
       <div className="container">
         <div className="flex justify-around items-center px-4 py-2 mb-4 border border-gray-200">
           <div
-            className={` ${page === 0 &&
+            className={`pb-1 ${page === 0 &&
               "border-b border-blue-500 font-semibold"}`}
           >
             STEP 1
           </div>
           <div
-            className={` ${page === 1 &&
+            className={`pb-1 ${page === 1 &&
               "border-b border-blue-500 font-semibold"}`}
           >
             STEP 2
