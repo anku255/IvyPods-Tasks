@@ -17,7 +17,6 @@ const Wizard = props => {
 
   const goToNextPage = values => {
     setPage(Math.min(page + 1, props.children.length - 1));
-    // TODO: Remove it and check
     setValues(values);
   };
 
