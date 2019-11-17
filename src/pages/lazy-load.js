@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import PropTypes from "prop-types";
 
 import Layout from "../components/layout";
 
@@ -26,8 +27,16 @@ const Image = ({ src }) => (
   </div>
 );
 
+Image.propTypes = {
+  src: PropTypes.string.isRequired
+};
+
 const ImageList = ({ images }) =>
   images.map((image, i) => <Image key={i} src={image} />);
+
+ImageList.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.string).isRequired
+};
 
 const LazyLoad = () => {
   useEffect(() => {
@@ -43,16 +52,12 @@ const LazyLoad = () => {
     function lazyLoad(elements) {
       elements.forEach(element => {
         if (element.intersectionRatio > 0) {
-          // set the src attribute to trigger a load
           element.target.src = element.target.dataset.src;
-
-          // stop observing this element. Our work here is done!
           observer.unobserve(element.target);
         }
       });
     }
 
-    // Tell our observer to observe all img elements with a "lazy" class
     const lazyImages = document.querySelectorAll("img.lazy");
     lazyImages.forEach(img => {
       observer.observe(img);

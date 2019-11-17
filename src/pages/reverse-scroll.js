@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import PropTypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroller";
 import Layout from "../components/layout";
 import Loader from "../components/loader";
@@ -17,8 +18,30 @@ const Item = ({ user }) => (
   </div>
 );
 
+Item.propTypes = {
+  user: PropTypes.shape({
+    id: PropTypes.string,
+    email: PropTypes.string,
+    name: PropTypes.string,
+    photo: PropTypes.string,
+    username: PropTypes.string
+  })
+};
+
 const ItemList = ({ users }) =>
   users.map(user => <Item key={user.id} user={user} />);
+
+ItemList.propTypes = {
+  users: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      email: PropTypes.string,
+      name: PropTypes.string,
+      photo: PropTypes.string,
+      username: PropTypes.string
+    })
+  )
+};
 
 const ReverseScroll = ({ users: initialUsers }) => {
   const [users, setUsers] = useState(initialUsers);

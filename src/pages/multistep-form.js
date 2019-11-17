@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { Field, ErrorMessage } from "formik";
 
 import Layout from "../components/layout";
@@ -98,10 +99,18 @@ const FinalPage = ({ values }) => (
   </div>
 );
 
+FinalPage.propTypes = {
+  values: PropTypes.shape({
+    name: PropTypes.string,
+    email: PropTypes.string,
+    password: PropTypes.string
+  })
+};
+
 const MultiStepForm = () => {
   const [formValues, setFormValues] = useState({});
-
   const [submitted, setSubmitted] = useState(false);
+
   return (
     <Layout>
       <div className="container mx-auto max-w-2xl bg-white px-8 py-4 shadow">
@@ -114,7 +123,7 @@ const MultiStepForm = () => {
               password: "",
               confirmPassword: ""
             }}
-            onSubmit={(values, actions) => {
+            onSubmit={values => {
               setFormValues(values);
               setSubmitted(true);
             }}
